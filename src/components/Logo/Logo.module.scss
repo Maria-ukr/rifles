@@ -1,0 +1,9 @@
+.wrap {
+  max-width: 130px;
+  & img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+}
