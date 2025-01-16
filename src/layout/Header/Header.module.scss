@@ -1,0 +1,13 @@
+.header {
+  background-color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 147px;
+  & .logo {
+    display: flex;
+  }
+}
+.right {
+  display: flex;
+}

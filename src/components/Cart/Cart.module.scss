@@ -1,0 +1,50 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  cursor: pointer;
+  &:hover > .popup {
+    visibility: visible;
+  }
+}
+
+.cart {
+  display: block;
+  background-color: transparent;
+  border: none;
+  padding-right: 0.7rem;
+  &.count {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+  }
+  & svg path {
+    transition: stroke 0.4s ease;
+    stroke: var(--dark);
+  }
+  &:hover svg path {
+    stroke: #b9b9b9;
+  }
+}
+.popup {
+  cursor: auto;
+  visibility: hidden;
+  z-index: 8;
+  position: absolute;
+  top: 100%;
+  right: -160px;
+  width: 350px;
+  & .inner {
+    box-shadow: 0px 0px 0px 6666px rgba(19, 20, 20, 0.4);
+    padding: 2rem;
+    background-color: var(--light);
+    max-width: 300px;
+    text-align: left;
+  }
+  & .title {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+}
