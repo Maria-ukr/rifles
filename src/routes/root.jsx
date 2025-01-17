@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Home, NotFoundPage, Catalog, Faq, About, Location, Product } from '../pages';
+import { Home, NotFoundPage, Catalog, Faq, About, Location, Product } from '@/pages';
 
 const fetchProducts = async() => {
   const response = await fetch('./../../data.json')
@@ -16,12 +16,11 @@ const router = createBrowserRouter([
     path: 'catalog',
     element: <Catalog />,
     loader: fetchProducts,
-    children: [
-      {
-        path: ':productId',
-        element: <Product />,
-      }
-    ]
+  },
+  {
+    path: ':productId',
+    element: <Product />,
+    loader: fetchProducts,
   },
   {
     path: 'faq',

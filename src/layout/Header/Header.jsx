@@ -6,16 +6,18 @@ import Cart from '@/components/Cart/Cart';
 import Search from '@/components/Search/Search';
 import Container from '@/ui/Container/Container';
 import MobileMenu from '@/components/MobileMenu/MobileMenu';
+import Navigation from 'root/data.json';
 
 function Header() {
+  const {categories} = Navigation;
   return (
     <Container>
       <header className={s.header}>
         <Link to='/' className={s.logo}>
           <Logo />
         </Link>
-        <Menu />
-        <MobileMenu />
+        <Menu categories={categories} />
+        <MobileMenu categories={categories} />
         <div className={s.right}>
           <Cart />
           <Search />

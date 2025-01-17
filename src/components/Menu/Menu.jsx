@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './Menu.module.scss';
 import bannerImg from '@/assets/images/banner.jpg';
-import ButtonArrow from '../../ui/ButtonArrow/ButtonArrow';
+import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
 
-function Menu() {
+function Menu({ categories }) {
   const [show, setShow] = useState(false);
   const refMenu = useRef(null);
   const refBlock = useRef(null);
@@ -32,146 +32,12 @@ function Menu() {
           {show && (
             <div className={s.container}>
               <div className={s.grid} ref={refBlock}>
-                <div>
-                  <p className={s.title}>Handguns</p>
-                  <ul>
-                    <li>
-                      <Link>Ammunition</Link>
-                    </li>
-                    <li>
-                      <Link>Assault rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Explosives</Link>
-                    </li>
-                    <li>
-                      <Link>Handguns</Link>
-                    </li>
-                    <li>
-                      <Link>Knives</Link>
-                    </li>
-                    <li>
-                      <Link>Miscellaneous</Link>
-                    </li>
-                    <li>
-                      <Link>Non-lethal Weapons</Link>
-                    </li>
-                    <li>
-                      <Link>Rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Shotguns</Link>
-                    </li>
-                    <li>
-                      <Link>Submachine guns</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <p className={s.title}>Rifles</p>
-                  <ul>
-                    <li>
-                      <Link>Ammunition</Link>
-                    </li>
-                    <li>
-                      <Link>Assault rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Explosives</Link>
-                    </li>
-                    <li>
-                      <Link>Handguns</Link>
-                    </li>
-                    <li>
-                      <Link>Knives</Link>
-                    </li>
-                    <li>
-                      <Link>Miscellaneous</Link>
-                    </li>
-                    <li>
-                      <Link>Non-lethal Weapons</Link>
-                    </li>
-                    <li>
-                      <Link>Rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Shotguns</Link>
-                    </li>
-                    <li>
-                      <Link>Submachine guns</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <p className={s.title}>Shotguns</p>
-                  <ul>
-                    <li>
-                      <Link>Ammunition</Link>
-                    </li>
-                    <li>
-                      <Link>Assault rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Explosives</Link>
-                    </li>
-                    <li>
-                      <Link>Handguns</Link>
-                    </li>
-                    <li>
-                      <Link>Knives</Link>
-                    </li>
-                    <li>
-                      <Link>Miscellaneous</Link>
-                    </li>
-                    <li>
-                      <Link>Non-lethal Weapons</Link>
-                    </li>
-                    <li>
-                      <Link>Rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Shotguns</Link>
-                    </li>
-                    <li>
-                      <Link>Submachine guns</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <p className={s.title}>Ammunition</p>
-                  <ul>
-                    <li>
-                      <Link>Ammunition</Link>
-                    </li>
-                    <li>
-                      <Link>Assault rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Explosives</Link>
-                    </li>
-                    <li>
-                      <Link>Handguns</Link>
-                    </li>
-                    <li>
-                      <Link>Knives</Link>
-                    </li>
-                    <li>
-                      <Link>Miscellaneous</Link>
-                    </li>
-                    <li>
-                      <Link>Non-lethal Weapons</Link>
-                    </li>
-                    <li>
-                      <Link>Rifles</Link>
-                    </li>
-                    <li>
-                      <Link>Shotguns</Link>
-                    </li>
-                    <li>
-                      <Link>Submachine guns</Link>
-                    </li>
-                  </ul>
-                </div>
+                {categories.slice(0, 4).map((item) => (
+                  <div key={item.id}>
+                    <p className={s.title}>{item.category}</p>
+                    <SubMenu submenu={item.subcategories} />
+                  </div>
+                ))}
                 <div
                   style={{ backgroundImage: `url(${bannerImg})` }}
                   className={s.banner}
@@ -179,7 +45,7 @@ function Menu() {
                   <p className={s.slogan}>Feel the Power of Melee Might</p>
                   <ButtonArrow
                     content='Go to collection'
-                    linkTo='/catalog'
+                    linkTo='/catalog/knifes'
                     classNames={s.bannerLink}
                   />
                 </div>
@@ -202,3 +68,15 @@ function Menu() {
 }
 
 export default Menu;
+
+const SubMenu = ({ submenu }) => {
+  return (
+    <ul>
+      {submenu.map(item => (
+        <li key={item}>
+          <Link to={`${item}`}>{item}</Link>
+        </li>
+      ))}
+    </ul>
+  )
+};
