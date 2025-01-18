@@ -1,4 +1,5 @@
 import Header from '@/layout/Header/Header';
+import Footer from '@/layout/Footer/Footer';
 import Container from '@/ui/Container/Container';
 import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
 import s from './Home.module.scss';
@@ -21,6 +22,7 @@ function Home() {
           </div>
         </Container>
       </section>
+      <Footer />
     </>
   );
 }
