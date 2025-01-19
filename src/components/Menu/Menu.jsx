@@ -74,7 +74,7 @@ const SubMenu = ({ submenu }) => {
     <ul>
       {submenu.map(item => (
         <li key={item}>
-          <Link to={`${item}`}>{item}</Link>
+          <Link to={`/${item}`}>{item}</Link>
         </li>
       ))}
     </ul>

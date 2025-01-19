@@ -75,8 +75,9 @@
       "steel grade": "440A",
       "knife type": "non-folding",
       "blade length": "121 mm",
-      "Country of manufacture": "USA",
+      "country_of_manufacture": "USA",
       "price": "1 060",
+      "rating": 8,
       "stock_status": true
     },
     {
@@ -89,8 +90,9 @@
       "steel grade": "S35VN",
       "knife type": "non-folding",
       "blade length": "254 mm",
-      "Country of manufacture": "USA",
+      "country_of_manufacture": "USA",
       "price": "18 480",
+      "rating": 5,
       "stock_status": true
     },
     {
@@ -104,8 +106,9 @@
       "barrel twist": "1:8\"",
       "weapon platform": "AR-15",
       "color": "black",
-      "Country of manufacture": "Ukraine",
+      "country_of_manufacture": "Ukraine",
       "price": "116 932.0",
+      "rating": 9,
       "stock_status": true
     },
     {
@@ -119,8 +122,9 @@
       "barrel twist": "1:7\"",
       "weapon platform": "AR-15",
       "color": "black",
-      "Country of manufacture": "USA",
+      "country_of_manufacture": "USA",
       "price": "756 460.0",
+      "rating": 10,
       "stock_status": true
     }
   ]
