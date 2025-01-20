@@ -1,11 +1,12 @@
 import router from './routes/root.jsx';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import Spinner from '@/components/Spinner/Spinner.jsx';
 
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} fallbackElement={<Spinner/>} />
     </>
   );
 }
