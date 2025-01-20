@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useMatches } from 'react-router-dom';
 import Header from '@/layout/Header/Header';
 import Footer from '@/layout/Footer/Footer';
 import Container from '@/ui/Container/Container';
@@ -9,6 +9,7 @@ import s from './Catalog.module.scss';
 function Catalog() {
   const { STATIC_FOLDER } = CONSTANTS;
   const products = useLoaderData();
+  const [path] = useMatches()
 
   return (
     <>
@@ -18,7 +19,7 @@ function Catalog() {
         <ul className={s.wrap}>
           {products.products.map((elem) => (
             <li key={elem.id} className={s.item}>
-              <Link to={`/${elem.id}`} className={s.link}>
+              <Link to={`${path.pathname}/${elem.id}`} className={s.link}>
                 <div className={s.image}>
                   <img
                     src={`${STATIC_FOLDER}images/products/${elem.id}.png`}

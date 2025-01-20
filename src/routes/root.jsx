@@ -1,11 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Home, NotFoundPage, Catalog, Faq, About, Location, Product } from '@/pages';
+import {
+  Home,
+  NotFoundPage,
+  Catalog,
+  Faq,
+  About,
+  Location,
+  Product,
+} from '@/pages';
 
-const fetchProducts = async() => {
-  const response = await fetch('./../../data.json')
+const fetchProducts = async () => {
+  const response = await fetch('./../../data.json');
   const data = await response.json();
-  return data
-}
+  return data;
+};
 
 const router = createBrowserRouter([
   {
@@ -13,25 +21,25 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: 'catalog',
+    path: '/catalog',
     element: <Catalog />,
     loader: fetchProducts,
   },
   {
-    path: ':productId',
+    path: 'catalog/:productId',
     element: <Product />,
     loader: fetchProducts,
   },
   {
-    path: 'faq',
+    path: '/faq',
     element: <Faq />,
   },
   {
-    path: 'about',
+    path: '/about',
     element: <About />,
   },
   {
-    path: 'location',
+    path: '/location',
     element: <Location />,
   },
   {

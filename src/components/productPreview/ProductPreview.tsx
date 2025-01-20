@@ -25,7 +25,7 @@ const ProductPreview = ({ item }) => {
   const [hover, setHover] = useState(null);
   const [tab, setTab] = useState('desc');
   return (
-    <Container>
+    <Container className={s.container}>
       <div className={s.wrap}>
         <div className={s.image}>
           <img src={`${STATIC_FOLDER}images/products/${id}.png`} alt={name} />

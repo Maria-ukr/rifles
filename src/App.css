@@ -5,3 +5,9 @@
   display: flex;
   flex-direction: column;
 }
+
+a.active {
+  transform: scale(1.2);
+  color: var(--bold);
+  border-bottom: 3px solid var(--bold);
+}

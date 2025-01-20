@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import clsx from 'classnames';
 import s from './Menu.module.scss';
 import bannerImg from '@/assets/images/banner.jpg';
 import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
@@ -26,9 +27,9 @@ function Menu({ categories }) {
     <nav className={s.nav}>
       <ul className={s['menu-list']}>
         <li ref={refMenu} className={s['item-menu']}>
-          <Link to='/catalog' className={s.catalog}>
+          <NavLink to='/catalog' className={({isActive}) => (clsx(isActive && 'active', s.catalog))}>
             Catalog
-          </Link>
+          </NavLink>
           {show && (
             <div className={s.container}>
               <div className={s.grid} ref={refBlock}>
@@ -54,13 +55,13 @@ function Menu({ categories }) {
           )}
         </li>
         <li className={s['item-menu']}>
-          <Link to='/about'>About</Link>
+          <NavLink to='/about' className={({isActive}) => isActive && 'active'}>About</NavLink>
         </li>
         <li className={s['item-menu']}>
-          <Link to='/faq'>FAQ</Link>
+          <NavLink to='/faq' className={({isActive}) => isActive && 'active'}>FAQ</NavLink>
         </li>
         <li className={s['item-menu']}>
-          <Link to='/location'>Location</Link>
+          <NavLink to='/location' className={({isActive}) => isActive && 'active'}>Location</NavLink>
         </li>
       </ul>
     </nav>
