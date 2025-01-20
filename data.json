@@ -1,10 +1,4 @@
 {
-  "company_name": "The Gun Store",
-  "contact_info": {
-    "address": "via Barberini, 31 - 00187 Roma, Italy",
-    "email": "sales@thegunstore.eu",
-    "phone": "+39 06 1234567"
-  },
   "categories": [
     {
       "id": 1,

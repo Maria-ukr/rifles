@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import clsx from 'classnames';
 import s from './Menu.module.scss';
 import bannerImg from '@/assets/images/banner.jpg';
-import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
+import LinkArrow from '@/ui/LinkArrow/LinkArrow';
 
 function Menu({ categories }) {
   const [show, setShow] = useState(false);
@@ -27,7 +27,7 @@ function Menu({ categories }) {
     <nav className={s.nav}>
       <ul className={s['menu-list']}>
         <li ref={refMenu} className={s['item-menu']}>
-          <NavLink to='/catalog' className={({isActive}) => (clsx(isActive && 'active', s.catalog))}>
+          <NavLink to='/catalog' className={({isActive}) => (clsx(isActive ? 'active' : '', s.catalog))}>
             Catalog
           </NavLink>
           {show && (
@@ -44,7 +44,7 @@ function Menu({ categories }) {
                   className={s.banner}
                 >
                   <p className={s.slogan}>Feel the Power of Melee Might</p>
-                  <ButtonArrow
+                  <LinkArrow
                     content='Go to collection'
                     linkTo='/catalog/knifes'
                     classNames={s.bannerLink}
@@ -55,13 +55,13 @@ function Menu({ categories }) {
           )}
         </li>
         <li className={s['item-menu']}>
-          <NavLink to='/about' className={({isActive}) => isActive && 'active'}>About</NavLink>
+          <NavLink to='/about' className={({isActive}) => isActive ? 'active' : ''}>About</NavLink>
         </li>
         <li className={s['item-menu']}>
-          <NavLink to='/faq' className={({isActive}) => isActive && 'active'}>FAQ</NavLink>
+          <NavLink to='/faq' className={({isActive}) => isActive ? 'active' : ''}>FAQ</NavLink>
         </li>
         <li className={s['item-menu']}>
-          <NavLink to='/location' className={({isActive}) => isActive && 'active'}>Location</NavLink>
+          <NavLink to='/location' className={({isActive}) => isActive ? 'active' : ''}>Location</NavLink>
         </li>
       </ul>
     </nav>

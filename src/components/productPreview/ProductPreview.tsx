@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'classnames';
 import Container from '@/ui/Container/Container';
 import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
-import s from './ProductPreview.module.scss';
 import { CONSTANTS } from '@/CONSTANTS.js';
+import s from './ProductPreview.module.scss';
 import Tick from './Tick';
 import Star from './Star';
 
 const ProductPreview = ({ item }) => {
-  console.log('item', item)
   const { STATIC_FOLDER } = CONSTANTS;
   const {
     id,
@@ -24,6 +23,7 @@ const ProductPreview = ({ item }) => {
   const [rate, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [tab, setTab] = useState('desc');
+
   return (
     <Container className={s.container}>
       <div className={s.wrap}>
@@ -80,7 +80,6 @@ const ProductPreview = ({ item }) => {
           <p className={s.price}>{`${price || null} грн`}</p>
           <ButtonArrow
             content='До кошика'
-            linkTo='/cart'
             classNames={s['add-to-cart']}
           />
         </div>

@@ -5,7 +5,7 @@ import gamburgerImg from '@/assets/images/gamburger.svg';
 import closeImg from '@/assets/images/close-btn.svg';
 import leftArrowImg from '@/assets/images/left-arrow.svg';
 import bannerImg from '@/assets/images/banner.jpg';
-import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
+import LinkArrow from '@/ui/LinkArrow/LinkArrow';
 
 function MobileMenu() {
   const [show, setShow] = useState(false);
@@ -185,7 +185,7 @@ function MobileMenu() {
                       className={s.banner}
                     >
                       <p className={s.slogan}>Feel the Power of Melee Might</p>
-                      <ButtonArrow
+                      <LinkArrow
                         content='Go to collection'
                         linkTo='/catalog'
                         classNames={s.bannerLink}

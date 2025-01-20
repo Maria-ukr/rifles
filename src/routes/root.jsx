@@ -9,12 +9,6 @@ import {
   Product,
 } from '@/pages';
 
-const fetchProducts = async () => {
-  const response = await fetch('./../../data.json');
-  const data = await response.json();
-  return data;
-};
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -23,12 +17,10 @@ const router = createBrowserRouter([
   {
     path: '/catalog',
     element: <Catalog />,
-    loader: fetchProducts,
   },
   {
     path: 'catalog/:productId',
     element: <Product />,
-    loader: fetchProducts,
   },
   {
     path: '/faq',
