@@ -7,6 +7,7 @@ import {
   About,
   Location,
   Product,
+  Checkout
 } from '@/pages';
 
 const router = createBrowserRouter([
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
     element: <Catalog />,
   },
   {
-    path: 'catalog/:productId',
+    path: 'catalog/:subcategory',
+    element: <Catalog />,
+  },
+  {
+    path: 'catalog/:subcategory/:productId',
     element: <Product />,
   },
   {
@@ -31,8 +36,12 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: '/location',
+    path: '/service-center',
     element: <Location />,
+  },
+  {
+    path: '/checkout',
+    element: <Checkout />,
   },
   {
     path: '*',

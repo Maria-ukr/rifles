@@ -196,13 +196,13 @@ function MobileMenu() {
               )}
             </li>
             <li className={s['item-menu']}>
-              <Link to='/about'>About</Link>
+              <Link to='/about'>Про компанію</Link>
             </li>
             <li className={s['item-menu']}>
-              <Link to='/faq'>FAQ</Link>
+              <Link to='/faq'>Питання та відповіді</Link>
             </li>
             <li className={s['item-menu']}>
-              <Link to='/location'>Location</Link>
+              <Link to='/service-center'>Сервісний центр</Link>
             </li>
           </ul>
         </nav>

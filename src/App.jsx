@@ -6,7 +6,7 @@ import Spinner from '@/components/Spinner/Spinner.jsx';
 function App() {
   return (
     <>
-      <RouterProvider router={router} fallbackElement={<Spinner/>} />
+      <RouterProvider router={router} fallbackElement={<Spinner />} />
     </>
   );
 }

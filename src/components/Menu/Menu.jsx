@@ -27,7 +27,12 @@ function Menu({ categories }) {
     <nav className={s.nav}>
       <ul className={s['menu-list']}>
         <li ref={refMenu} className={s['item-menu']}>
-          <NavLink to='/catalog' className={({isActive}) => (clsx(isActive ? 'active' : '', s.catalog))}>
+          <NavLink
+            to='/catalog'
+            className={({ isActive }) =>
+              clsx(isActive ? 'active' : '', s.catalog)
+            }
+          >
             Catalog
           </NavLink>
           {show && (
@@ -55,13 +60,28 @@ function Menu({ categories }) {
           )}
         </li>
         <li className={s['item-menu']}>
-          <NavLink to='/about' className={({isActive}) => isActive ? 'active' : ''}>About</NavLink>
+          <NavLink
+            to='/about'
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            Про компанію
+          </NavLink>
         </li>
         <li className={s['item-menu']}>
-          <NavLink to='/faq' className={({isActive}) => isActive ? 'active' : ''}>FAQ</NavLink>
+          <NavLink
+            to='/faq'
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            Питання та відповіді
+          </NavLink>
         </li>
         <li className={s['item-menu']}>
-          <NavLink to='/location' className={({isActive}) => isActive ? 'active' : ''}>Location</NavLink>
+          <NavLink
+            to='/service-center'
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            Сервісний центр
+          </NavLink>
         </li>
       </ul>
     </nav>
@@ -73,11 +93,11 @@ export default Menu;
 const SubMenu = ({ submenu }) => {
   return (
     <ul>
-      {submenu.map(item => (
-        <li key={item}>
-          <Link to={`/${item}`}>{item}</Link>
+      {submenu.map((item) => (
+        <li key={item.subcategory}>
+          <Link to={`/catalog/${item.link}`}>{item.subcategory}</Link>
         </li>
       ))}
     </ul>
-  )
+  );
 };

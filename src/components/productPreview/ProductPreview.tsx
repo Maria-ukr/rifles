@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import clsx from 'classnames';
 import Container from '@/ui/Container/Container';
 import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
-import { CONSTANTS } from '@/CONSTANTS.js';
+import { CONSTANTS } from '@/constants.js';
 import s from './ProductPreview.module.scss';
 import Tick from './Tick';
 import Star from './Star';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/slices/cartSlice';
 
 const ProductPreview = ({ item }) => {
+  const dispatch = useDispatch()
   const { STATIC_FOLDER } = CONSTANTS;
   const {
     id,
@@ -81,6 +84,7 @@ const ProductPreview = ({ item }) => {
           <ButtonArrow
             content='До кошика'
             classNames={s['add-to-cart']}
+            onClick={() => dispatch(addToCart(item))}
           />
         </div>
       </div>
