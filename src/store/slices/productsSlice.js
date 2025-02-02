@@ -15,10 +15,13 @@ const productsSlice = createSlice({
     getProductById: (state, { payload }) => {
       state.product = state.products.find((item) => item.id === payload);
     },
+    setRating: (state, { payload }) => {
+      state.product.rating = payload.rate;
+    },
   },
 });
 
 const { reducer, actions } = productsSlice;
-export const { getProductById } = actions;
+export const { getProductById, setRating } = actions;
 
 export default reducer;

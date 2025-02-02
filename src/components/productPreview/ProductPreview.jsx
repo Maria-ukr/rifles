@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import clsx from 'classnames';
 import Container from '@/ui/Container/Container';
 import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
+import { addToCart } from '../../store/slices/cartSlice';
+import { setRating } from '../../store/slices/productsSlice';
 import { CONSTANTS } from '@/constants.js';
 import s from './ProductPreview.module.scss';
 import Tick from './Tick';
 import Star from './Star';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../store/slices/cartSlice';
 
 const ProductPreview = ({ item }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { STATIC_FOLDER } = CONSTANTS;
   const {
     id,
@@ -23,9 +24,14 @@ const ProductPreview = ({ item }) => {
     stock_status,
     ...rest
   } = item;
-  const [rate, setRating] = useState(null);
+
+  const [rate, setRate] = useState(rating);
   const [hover, setHover] = useState(null);
   const [tab, setTab] = useState('desc');
+
+  useEffect(() => {
+    dispatch(setRating({ id, rate }));
+  }, [rate]);
 
   return (
     <Container className={s.container}>
@@ -51,8 +57,10 @@ const ProductPreview = ({ item }) => {
                         key={star}
                         type='radio'
                         name='rating'
-                        value={currentRating}
-                        onChange={() => setRating(currentRating)}
+                        value={rate}
+                        onChange={() => {
+                          setRate(Number(currentRating));
+                        }}
                       />
                       <Star
                         className={s.star}
