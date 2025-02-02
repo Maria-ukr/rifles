@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '@/layout/Header/Header';
-import Footer from '@/layout/Footer/Footer';
-import Container from '@/ui/Container/Container';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import Container from '@/components/Container/Container';
 import { CONSTANTS } from '@/constants.js';
-import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
+import ButtonArrow from '@/components/ButtonArrow/ButtonArrow';
 import s from './Catalog.module.scss';
 import { addToCart } from '../../store/slices/cartSlice';
 

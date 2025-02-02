@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import Header from '@/layout/Header/Header';
-import Footer from '@/layout/Footer/Footer';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 import ProductPreview from '@/components/ProductPreview/ProductPreview';
 import { getProductById } from '@/store/slices/productsSlice.js';
 

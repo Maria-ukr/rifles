@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '@/components/Logo/Logo';
-import Container from '@/ui/Container/Container';
+import Container from '@/components/Container/Container';
 import s from './Footer.module.scss';
 import freeDeliverImg from '@/assets/images/free-deliver.svg';
 import securePaymentImg from '@/assets/images/secure-payment.svg';

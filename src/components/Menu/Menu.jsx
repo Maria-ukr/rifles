@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import clsx from 'classnames';
 import s from './Menu.module.scss';
 import bannerImg from '@/assets/images/banner.jpg';
-import LinkArrow from '@/ui/LinkArrow/LinkArrow';
+import LinkArrow from '@/components/LinkArrow/LinkArrow';
 
 function Menu({ categories }) {
   const [show, setShow] = useState(false);

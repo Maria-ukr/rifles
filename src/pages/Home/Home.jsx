@@ -1,7 +1,7 @@
-import Header from '@/layout/Header/Header';
-import Footer from '@/layout/Footer/Footer';
-import Container from '@/ui/Container/Container';
-import LinkArrow from '@/ui/LinkArrow/LinkArrow';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import Container from '@/components/Container/Container';
+import LinkArrow from '@/components/LinkArrow/LinkArrow';
 import s from './Home.module.scss';
 import mainImg from '@/assets/images/main.jpg';
 

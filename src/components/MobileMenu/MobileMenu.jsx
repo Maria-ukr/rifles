@@ -5,7 +5,7 @@ import gamburgerImg from '@/assets/images/gamburger.svg';
 import closeImg from '@/assets/images/close-btn.svg';
 import leftArrowImg from '@/assets/images/left-arrow.svg';
 import bannerImg from '@/assets/images/banner.jpg';
-import LinkArrow from '@/ui/LinkArrow/LinkArrow';
+import LinkArrow from '@/components/LinkArrow/LinkArrow';
 
 function MobileMenu() {
   const [show, setShow] = useState(false);

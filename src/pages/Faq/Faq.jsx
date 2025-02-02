@@ -1,5 +1,5 @@
-import Footer from '@/layout/Footer/Footer';
-import Header from '@/layout/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 
 function Faq() {
   return (

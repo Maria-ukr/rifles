@@ -4,7 +4,7 @@ import Logo from '@/components/Logo/Logo';
 import Menu from '@/components/Menu/Menu';
 import Cart from '@/components/Cart/Cart';
 import Search from '@/components/Search/Search';
-import Container from '@/ui/Container/Container';
+import Container from '@/components/Container/Container';
 import MobileMenu from '@/components/MobileMenu/MobileMenu';
 import Navigation from 'root/data.json';
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import clsx from 'classnames';
-import Container from '@/ui/Container/Container';
-import ButtonArrow from '@/ui/ButtonArrow/ButtonArrow';
+import Container from '@/components/Container/Container';
+import ButtonArrow from '@/components/ButtonArrow/ButtonArrow';
 import { addToCart } from '../../store/slices/cartSlice';
 import { setRating } from '../../store/slices/productsSlice';
 import { CONSTANTS } from '@/constants.js';

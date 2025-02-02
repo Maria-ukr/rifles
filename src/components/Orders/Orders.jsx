@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Container from '@/ui/Container/Container';
+import Container from '@/components/Container/Container';
 import { CONSTANTS } from '@/constants.js';
 import Item from './Item.jsx';
 import SecondStep from './SecondStep.jsx';

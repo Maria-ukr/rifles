@@ -1,6 +1,6 @@
-import Header from '@/layout/Header/Header';
-import Footer from '@/layout/Footer/Footer';
-import Container from '@/ui/Container/Container';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import Container from '@/components/Container/Container';
 import Orders from '@/components/Orders/Orders';
 import s from './Checkout.module.scss';
 

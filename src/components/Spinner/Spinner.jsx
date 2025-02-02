@@ -1,4 +1,4 @@
-import Container from '@/ui/Container/Container';
+import Container from '@/components/Container/Container';
 import s from './Spinner.module.scss';
 
 function Spinner() {
