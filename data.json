@@ -133,7 +133,7 @@
       "knife type": "non-folding",
       "blade length": "121 mm",
       "country_of_manufacture": "USA",
-      "price": "1 060",
+      "price": "1060",
       "rating": 8,
       "stock_status": true
     },
@@ -149,7 +149,7 @@
       "knife type": "non-folding",
       "blade length": "254 mm",
       "country_of_manufacture": "USA",
-      "price": "18 480",
+      "price": "18480",
       "rating": 5,
       "stock_status": true
     },
@@ -166,7 +166,7 @@
       "weapon platform": "AR-15",
       "color": "black",
       "country_of_manufacture": "Ukraine",
-      "price": "116 932.0",
+      "price": "116932",
       "rating": 9,
       "stock_status": true
     },
@@ -183,7 +183,7 @@
       "weapon platform": "AR-15",
       "color": "black",
       "country_of_manufacture": "USA",
-      "price": "756 460.0",
+      "price": "756460",
       "rating": 10,
       "stock_status": true
     },
@@ -199,7 +199,7 @@
       "blade thickness": "8 mm",
       "material": "steel",
       "country_of_manufacture": "Ukraine",
-      "price": "22 750.0",
+      "price": "22750",
       "rating": 10,
       "stock_status": true
     }

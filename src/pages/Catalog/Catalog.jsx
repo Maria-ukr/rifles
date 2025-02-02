@@ -1,4 +1,4 @@
-import { Link, useParams  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '@/layout/Header/Header';
 import Footer from '@/layout/Footer/Footer';
@@ -10,11 +10,8 @@ import { addToCart } from '../../store/slices/cartSlice';
 
 function Catalog() {
   const { STATIC_FOLDER } = CONSTANTS;
-  const {subcategory, productId} = useParams();
   const dispatch = useDispatch()
   const { products, error } = useSelector((state) => state.productsList);
-  console.log('subcategory', subcategory)
-
   return (
     <>
       <Header />
@@ -25,7 +22,7 @@ function Catalog() {
           {products &&
             products.map((elem) => (
               <li key={elem.id} className={s.item}>
-                <Link to={`${subcategory ? subcategory : elem.subcategory}/${elem.id}`} className={s.link}>
+                <Link to={`${elem.id}`} className={s.link}>
                   <div className={s.image}>
                     <img
                       src={`${STATIC_FOLDER}images/products/${elem.id}.png`}

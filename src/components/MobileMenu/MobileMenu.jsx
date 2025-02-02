@@ -29,11 +29,11 @@ function MobileMenu() {
           </button>
           <ul className={s['menu-list']}>
             <li className={s['item-menu']} onClick={handleSubmenu}>
-              <p className={s.catalog}>Catalog</p>
+              <p className={s.catalog}>Каталог</p>
               {showSubmenu && (
                 <div className={s.container}>
                   <div className={s.top}>
-                    <p>Catalog</p>
+                    <p>Каталог</p>
                     <button className={s['left-btn']} onClick={handleSubmenu}>
                       <img src={leftArrowImg} alt='back to main menu' />
                     </button>

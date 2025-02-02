@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   flex: 0 1 auto;
+  transition: all 0.5s linear;
   @media (max-width: 764px) {
     display: none;
   }
@@ -27,15 +28,19 @@
       font-size: 1.2rem;
       font-weight: 600;
       text-transform: uppercase;
+      transition: all 0.5s linear;
       &:hover {
         color: var(--grimmy-grey);
+      }
+      @media (max-width: 991px) {
+        font-size: 1rem;
       }
     }
   }
 }
 .catalog {
   position: relative;
-  padding-right: 30px;
+  // padding-right: 30px;
   &::after {
     position: absolute;
     background-image: url('./arrow-drop-down.svg');

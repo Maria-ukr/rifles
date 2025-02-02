@@ -17,7 +17,7 @@ function Home() {
       >
         <Container className={s.container}>
           <div className={s.wrap}>
-            <h1>Arm Yourself with Quality Firearms and Accessories</h1>
+            <h1 id='hero' className='hero'>Arm Yourself with Quality Firearms and Accessories</h1>
             <LinkArrow content='Discover collection' linkTo='/catalog' />
           </div>
         </Container>

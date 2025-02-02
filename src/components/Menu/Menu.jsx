@@ -33,7 +33,7 @@ function Menu({ categories }) {
               clsx(isActive ? 'active' : '', s.catalog)
             }
           >
-            Catalog
+            Каталог
           </NavLink>
           {show && (
             <div className={s.container}>
@@ -95,7 +95,7 @@ const SubMenu = ({ submenu }) => {
     <ul>
       {submenu.map((item) => (
         <li key={item.subcategory}>
-          <Link to={`/catalog/${item.link}`}>{item.subcategory}</Link>
+          <Link to={`/catalog`}>{item.subcategory}</Link>
         </li>
       ))}
     </ul>
