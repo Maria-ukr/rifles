@@ -7,6 +7,7 @@ const productsSlice = createSlice({
   name: PRODUCTS_SLICE_NAME,
   initialState: {
     products: [...API.products],
+    filtered: [],
     product: {},
     isFetching: false,
     error: null,
@@ -18,25 +19,20 @@ const productsSlice = createSlice({
     setRating: (state, { payload }) => {
       state.product.rating = payload.rate;
     },
-    getProducts: (state, { payload }) => {
-      switch (payload) {
-        case 'price':
-          state.products.sort((a, b) => a.price - b.price);
-          break;
-        case 'price-desc':
-          state.products.sort((a, b) => b.price - a.price);
-          break;
-        case 'popularity':
-          state.products.sort((a, b) => a.rating - b.rating);
-          break;
-        default:
-          state.products;
+    getProductsByCategory: (state, { payload }) => {
+      let filteredProducts = [];
+      if (payload) {
+        filteredProducts = state.products.filter((el) => el.category === payload);
+      } else {
+        filteredProducts = [...state.products]
       }
+      state.filtered = filteredProducts;
     },
   },
 });
 
 const { reducer, actions } = productsSlice;
-export const { getProductById, setRating, getProducts } = actions;
+export const { getProductById, setRating, getProducts, getProductsByCategory } =
+  actions;
 
 export default reducer;

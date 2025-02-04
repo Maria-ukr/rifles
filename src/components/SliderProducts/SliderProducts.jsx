@@ -12,8 +12,8 @@ import 'swiper/css/mousewheel';
 
 import s from './SliderProducts.module.scss';
 
-const { STATIC_FOLDER } = CONSTANTS;
 const SliderItem = ({ category }) => {
+  const { STATIC_FOLDER } = CONSTANTS;
   return (
     <Link to={`/catalog?category=${category.link}`} className={s.item}>
       <div className={s.icon}>

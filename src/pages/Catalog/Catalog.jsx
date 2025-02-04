@@ -4,33 +4,63 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import SliderProducts from '@/components/SliderProducts/SliderProducts';
 import Container from '@/components/Container/Container';
 import { CONSTANTS } from '@/constants.js';
 import ButtonArrow from '@/components/ButtonArrow/ButtonArrow';
 import s from './Catalog.module.scss';
 import { addToCart } from '../../store/slices/cartSlice';
-import { getProducts } from '../../store/slices/productsSlice';
+import { getProductsByCategory } from '../../store/slices/productsSlice';
 
 function Catalog() {
   const { STATIC_FOLDER } = CONSTANTS;
   const dispatch = useDispatch();
-  const { products, error } = useSelector((state) => state.productsList);
+  const { products, filtered, error } = useSelector(
+    (state) => state.productsList
+  );
+
+  const [allProducts, setAllProducts] = useState([]);
+  const [selected, setSelected] = useState(null);
+
+  const [searchParams] = useSearchParams();
+  const [params, setParams] = useState(searchParams.get('category'));
+
   const options = [
     { value: 'price', label: 'Сортувати за ціною: від нижчої до вищої' },
     { value: 'price-desc', label: 'Сортувати за ціною: від вищої до нижчої' },
     { value: 'popularity', label: 'Сортувати за популярністю' },
   ];
-  const [productsSort, setProductsList] = useState(products);
-  console.log('products', productsSort);
-  const [selected, setSelected] = useState(null);
-  // const [searchParams] = useSearchParams();
-  // console.log('query', searchParams);
+  const sortedProducts = (type, products) => {
+    if (!products || products.length === 0) return [];
+    let sorted = [...products];
+    switch (type) {
+      case 'price':
+        return sorted.sort((a, b) => a.price - b.price);
+      case 'price-desc':
+        return sorted.sort((a, b) => b.price - a.price);
+      case 'popularity':
+        return sorted.sort((a, b) => a.rating - b.rating);
+      default:
+        return sorted;
+    }
+  };
+
   useEffect(() => {
-    dispatch(getProducts(selected));
+    const searchCategory = searchParams.get('category');
+    setParams(searchCategory);
+    dispatch(getProductsByCategory(searchCategory));
+  }, [dispatch, searchParams]);
+
+  useEffect(() => {
+    if (allProducts.length > 0 && selected) {
+      setAllProducts(sortedProducts(selected, allProducts));
+    }
   }, [selected]);
+
   useEffect(() => {
-    setProductsList(products);
-  }, [products]);
+    if (filtered) setAllProducts(filtered);
+  }, [filtered]);
+
   const customStyles = {
     menu: (provided, state) => ({
       ...provided,
@@ -83,7 +113,6 @@ function Catalog() {
     <>
       <Header />
       <Container className={s.container}>
-        <h2 className={s.title}>Shop</h2>
         <Select
           options={options}
           defaultValue={options[1]}
@@ -91,10 +120,12 @@ function Catalog() {
           className={s.select}
           styles={customStyles}
         />
+        <SliderProducts />
+        {allProducts.length === 0 && <p>В категорії немає товарів</p>}
         <ul className={s.wrap}>
           {error && <p>{error}</p>}
-          {productsSort &&
-            productsSort.map((elem) => (
+          {allProducts.length > 0 &&
+            allProducts.map((elem) => (
               <li key={elem.id} className={s.item}>
                 <Link to={`${elem.id}`} className={s.link}>
                   <div className={s.image}>
