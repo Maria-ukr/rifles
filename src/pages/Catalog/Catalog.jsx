@@ -11,8 +11,10 @@ import ButtonArrow from '@/components/ButtonArrow/ButtonArrow';
 import s from './Catalog.module.scss';
 import { addToCart } from '../../store/slices/cartSlice';
 import { getProductsByCategory } from '../../store/slices/productsSlice';
+import CategoriesList from 'root/data.json';
 
 function Catalog() {
+  const { categories } = CategoriesList;
   const { STATIC_FOLDER } = CONSTANTS;
   const dispatch = useDispatch();
   const { products, filtered, error } = useSelector(
@@ -22,8 +24,8 @@ function Catalog() {
   const [allProducts, setAllProducts] = useState([]);
   const [selected, setSelected] = useState(null);
 
-  const [searchParams] = useSearchParams();
-  const [params, setParams] = useState(searchParams.get('category'));
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [params, getParams] = useState(searchParams.get('category'));
 
   const options = [
     { value: 'price', label: 'Сортувати за ціною: від нижчої до вищої' },
@@ -47,7 +49,7 @@ function Catalog() {
 
   useEffect(() => {
     const searchCategory = searchParams.get('category');
-    setParams(searchCategory);
+    getParams(searchCategory);
     dispatch(getProductsByCategory(searchCategory));
   }, [dispatch, searchParams]);
 
@@ -81,7 +83,7 @@ function Catalog() {
       ...provided,
       backgroundColor: '#ffffff',
       color: '#777777',
-      padding: '15px 0',
+      padding: '15px',
       '&:hover': {
         backgroundColor: '#777',
         color: '#f0f0f0',
@@ -109,47 +111,77 @@ function Catalog() {
       },
     }),
   };
+
+  const handleCategory = (e) => {
+    console.log('e', e.currentTarget.value);
+    const categoryValue = e.currentTarget.value;
+    setSearchParams((prevParams) => ({
+      ...prevParams,
+      category: categoryValue,
+    }));
+  };
+
   return (
     <>
       <Header />
-      <Container className={s.container}>
-        <Select
-          options={options}
-          defaultValue={options[1]}
-          onChange={(selected) => setSelected(selected.value)}
-          className={s.select}
-          styles={customStyles}
-        />
-        <SliderProducts />
-        {allProducts.length === 0 && <p>В категорії немає товарів</p>}
-        <ul className={s.wrap}>
-          {error && <p>{error}</p>}
-          {allProducts.length > 0 &&
-            allProducts.map((elem) => (
-              <li key={elem.id} className={s.item}>
-                <Link to={`${elem.id}`} className={s.link}>
-                  <div className={s.image}>
-                    <img
-                      src={`${STATIC_FOLDER}images/products/${elem.id}.png`}
-                      alt={elem.name}
+      <Container>
+        <div className={s['select-wrap']}>
+          <p>Сорування</p>
+          <Select
+            options={options}
+            defaultValue={options[1]}
+            onChange={(selected) => setSelected(selected.value)}
+            className={s.select}
+            styles={customStyles}
+          />
+        </div>
+        <div className={s.container}>
+          <div className={s.filters}>
+            <p className={s.title}>Фільтри</p>
+            <form>
+              {categories.map((el) => (
+                <label key={el.id} className={s['wrap-input']}>
+                  <span>{el.category}</span>
+                  <input
+                    name='category'
+                    type='radio'
+                    value={el.link}
+                    onChange={handleCategory}
+                  />
+                </label>
+              ))}
+            </form>
+          </div>
+          <div className={s.content}>
+            {allProducts.length === 0 && <p>В категорії немає товарів</p>}
+            <ul className={s.wrap}>
+              {error && <p>{error}</p>}
+              {allProducts.length > 0 &&
+                allProducts.map((elem) => (
+                  <li key={elem.id} className={s.item}>
+                    <Link to={`${elem.id}`} className={s.link}>
+                      <div className={s.image}>
+                        <img
+                          src={`${STATIC_FOLDER}images/products/${elem.id}.png`}
+                          alt={elem.name}
+                        />
+                      </div>
+                      <div className={s.content}>
+                        <p className={s.name}>{elem.name}</p>
+                        <p className={s.price}>{elem.price} грн</p>
+                      </div>
+                    </Link>
+                    <ButtonArrow
+                      content='До кошика'
+                      classNames={s['add-to-cart']}
+                      onClick={() => dispatch(addToCart(elem))}
                     />
-                  </div>
-
-                  <div className={s.content}>
-                    <p className={s.name}>{elem.name}</p>
-                    <p className={s.price}>{elem.price} грн</p>
-                  </div>
-                </Link>
-                <ButtonArrow
-                  content='До кошика'
-                  classNames={s['add-to-cart']}
-                  onClick={() => dispatch(addToCart(elem))}
-                />
-              </li>
-            ))}
-        </ul>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
       </Container>
-
       <Footer />
     </>
   );

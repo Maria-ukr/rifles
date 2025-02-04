@@ -1,40 +1,81 @@
 .container {
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 764px) {
+    flex-direction: column;
+  }
+}
+
+.filters {
+  min-width: 250px;
+  padding: 0 1rem 1rem;
+  text-align: left;
+  & .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-bottom: 1.3rem;
+    border-bottom: 1px solid var(--grimmy-grey);
+  }
+  & .wrap-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    margin: 8px 0;
+    & input {
+      margin-right: 5px;
+    }
+  }
+}
+
+.content {
+  width: 100%;
 }
 
 .wrap {
-  padding: 2rem 0;
+  padding: 0 0 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 1rem;
-  @media (max-width: 830px) {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  @media (max-width: 991px) {
     grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 557px) {
-    grid-template-columns: 1fr;
   }
   & .item {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
+    border: 1px solid rgb(201, 201, 201);
+    padding: 1rem;
+    transition: all 0.3s linear;
+    &:hover {
+      box-shadow: rgba(86, 86, 88, 0.6) 0px 0px 25px 0px;
+    }
+    @media (max-width: 764px) {
+      padding: 0.5rem;
+    }
+
     & .link {
       display: flex;
       flex-direction: column;
     }
     & .image {
       margin-bottom: 1rem;
-      min-height: 300px;
-      max-height: 350px;
+      width: 100%;
+      max-height: 250px;
+      @media (max-width: 764px) {
+        max-height: 200px;
+      }
       & img {
         object-fit: contain;
         height: 100%;
       }
     }
     & .content {
-      padding: 0 8px;
       margin-bottom: 1rem;
       & .name {
         font-weight: 600;
@@ -50,11 +91,24 @@
   & .add-to-cart {
     border: 1px solid var(--grimmy-grey);
     margin: 0 auto;
+    width: auto;
+    min-width: fit-content;
+    @media (max-width: 764px) {
+      & img {
+        display: none;
+      }
+    }
   }
 }
-
-.select {
-  max-width: 400px;
-  width: 90%;
-  margin-left: auto;
+.select-wrap {
+    margin-left: auto;
+    max-width: 400px;
+  & p {
+    margin-bottom: 13px;
+    color: var(--grimmy-grey);
+    text-align: left;
+  }
+  & .select {
+    text-align: left;
+  }
 }
