@@ -4,6 +4,7 @@ import Container from '@/components/Container/Container';
 import LinkArrow from '@/components/LinkArrow/LinkArrow';
 import s from './Home.module.scss';
 import mainImg from '@/assets/images/main.jpg';
+import SliderProducts from '../../components/SliderProducts/SliderProducts';
 
 function Home() {
   return (
@@ -22,6 +23,7 @@ function Home() {
           </div>
         </Container>
       </section>
+      <SliderProducts />
       <Footer />
     </>
   );

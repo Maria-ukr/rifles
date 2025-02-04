@@ -18,10 +18,25 @@ const productsSlice = createSlice({
     setRating: (state, { payload }) => {
       state.product.rating = payload.rate;
     },
+    getProducts: (state, { payload }) => {
+      switch (payload) {
+        case 'price':
+          state.products.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-desc':
+          state.products.sort((a, b) => b.price - a.price);
+          break;
+        case 'popularity':
+          state.products.sort((a, b) => a.rating - b.rating);
+          break;
+        default:
+          state.products;
+      }
+    },
   },
 });
 
 const { reducer, actions } = productsSlice;
-export const { getProductById, setRating } = actions;
+export const { getProductById, setRating, getProducts } = actions;
 
 export default reducer;
