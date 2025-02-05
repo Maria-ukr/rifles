@@ -1,5 +1,9 @@
 import * as yup from 'yup';
 
+export const schemaSearchedProduct = yup.object({
+  search: yup.string().min(1).max(20).trim().required(),
+});
+
 export const schemaСheckoutCard = yup.object({
   firstName: yup.string().min(1).required('Обовʼязкове для заповнення'),
   lastName: yup.string().min(1).required('Обовʼязкове для заповнення'),
@@ -19,7 +23,5 @@ export const schemaСheckoutCard = yup.object({
     .required()
     .oneOf(['Онлайн оплата', 'Післяплата'], 'Оберіть метод оплати'),
   city: yup.string().required('Виберіть із списку'),
-  shipping_address: yup
-    .string()
-    .required('Оберіть метод доставки'),
+  shipping_address: yup.string().required('Оберіть метод доставки'),
 });

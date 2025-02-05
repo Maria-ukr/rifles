@@ -4,28 +4,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import SliderProducts from '@/components/SliderProducts/SliderProducts';
 import Container from '@/components/Container/Container';
 import { CONSTANTS } from '@/constants.js';
 import ButtonArrow from '@/components/ButtonArrow/ButtonArrow';
 import s from './Catalog.module.scss';
 import { addToCart } from '../../store/slices/cartSlice';
-import { getProductsByCategory } from '../../store/slices/productsSlice';
+import {
+  getProductsByCategory,
+  getProductsBySearch,
+} from '../../store/slices/productsSlice';
 import CategoriesList from 'root/data.json';
 
 function Catalog() {
   const { categories } = CategoriesList;
   const { STATIC_FOLDER } = CONSTANTS;
   const dispatch = useDispatch();
-  const { products, filtered, error } = useSelector(
-    (state) => state.productsList
-  );
+  const { products, filtered, error } = useSelector((state) => state.productsList);
 
   const [allProducts, setAllProducts] = useState([]);
   const [selected, setSelected] = useState(null);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [params, getParams] = useState(searchParams.get('category'));
+  const [searchParam, setSearchParam] = useSearchParams();
+
+  const category = searchParam.get('category');
+  const searchText = searchParam.get('search');
 
   const options = [
     { value: 'price', label: 'Сортувати за ціною: від нижчої до вищої' },
@@ -48,10 +50,16 @@ function Catalog() {
   };
 
   useEffect(() => {
-    const searchCategory = searchParams.get('category');
-    getParams(searchCategory);
-    dispatch(getProductsByCategory(searchCategory));
-  }, [dispatch, searchParams]);
+    if (category) {
+      dispatch(getProductsByCategory(category));
+    }
+  }, [dispatch, category]);
+
+  useEffect(() => {
+    if (searchText) {
+      dispatch(getProductsBySearch(searchText));
+    }
+  }, [dispatch, searchText]);
 
   useEffect(() => {
     if (allProducts.length > 0 && selected) {
@@ -62,6 +70,10 @@ function Catalog() {
   useEffect(() => {
     if (filtered) setAllProducts(filtered);
   }, [filtered]);
+
+  useEffect(() => {
+    setAllProducts([...products]);
+  }, []);
 
   const customStyles = {
     menu: (provided, state) => ({
@@ -113,9 +125,8 @@ function Catalog() {
   };
 
   const handleCategory = (e) => {
-    console.log('e', e.currentTarget.value);
     const categoryValue = e.currentTarget.value;
-    setSearchParams((prevParams) => ({
+    setSearchParam((prevParams) => ({
       ...prevParams,
       category: categoryValue,
     }));
@@ -153,7 +164,7 @@ function Catalog() {
             </form>
           </div>
           <div className={s.content}>
-            {allProducts.length === 0 && <p>В категорії немає товарів</p>}
+            {allProducts.length === 0 && <p>Товарів не знайдено</p>}
             <ul className={s.wrap}>
               {error && <p>{error}</p>}
               {allProducts.length > 0 &&

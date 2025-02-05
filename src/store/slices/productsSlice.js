@@ -22,17 +22,37 @@ const productsSlice = createSlice({
     getProductsByCategory: (state, { payload }) => {
       let filteredProducts = [];
       if (payload) {
-        filteredProducts = state.products.filter((el) => el.category === payload);
+        filteredProducts = state.products.filter(
+          (el) => el.category === payload
+        );
       } else {
-        filteredProducts = [...state.products]
+        filteredProducts = [...state.products];
       }
       state.filtered = filteredProducts;
+    },
+    getProductsBySearch: (state, { payload }) => {
+      let searchedProducts = [];
+      if (payload) {
+        searchedProducts = state.products.filter(
+          (el) =>
+            el.name.toLowerCase().includes(payload.toLowerCase()) ||
+            el.description.toLowerCase().includes(payload.toLowerCase())
+        );
+      } else {
+        searchedProducts = [...state.products];
+      }
+      state.filtered = searchedProducts;
     },
   },
 });
 
 const { reducer, actions } = productsSlice;
-export const { getProductById, setRating, getProducts, getProductsByCategory } =
-  actions;
+export const {
+  getProductById,
+  setRating,
+  getProducts,
+  getProductsByCategory,
+  getProductsBySearch,
+} = actions;
 
 export default reducer;

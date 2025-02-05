@@ -2,8 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import searchImg from '@/assets/images/search.svg';
 import s from './Search.module.scss';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { schemaSearchedProduct } from '../../utils/validationSchemas';
 
 function Search() {
+  const navigate = useNavigate();
+  const [searchText, setSearchText] = useSearchParams();
   const [modalIsOpen, setIsOpen] = useState(false);
   const modalEl = useRef(null);
   const icon = (
@@ -23,7 +27,11 @@ function Search() {
     setIsOpen(true);
   }
   const handleSubmit = (values) => {
-    console.log('v', values);
+    setSearchText((prevParams) => ({
+      ...prevParams,
+      search: values.search,
+    }));
+    navigate(`/catalog?search=${values.search}`);
     setIsOpen(false);
   };
 
@@ -49,9 +57,13 @@ function Search() {
       </button>
       {modalIsOpen && (
         <div className={s.modal}>
-          <Formik initialValues={{ search: '' }} onSubmit={handleSubmit}>
-            <Form ref={modalEl}>
-              <Field type='text' name='search' placeholder='search ...' />
+          <Formik
+            initialValues={{ search: '' }}
+            onSubmit={handleSubmit}
+            validationSchema={schemaSearchedProduct}
+          >
+            <Form ref={modalEl} autocomplete='off'>
+              <Field type='search' name='search' placeholder='search ...' />
               <button type='submit'>{icon}</button>
             </Form>
           </Formik>
