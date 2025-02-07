@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import { useRef } from 'react';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import Container from '@/components/Container/Container';
 import LinkArrow from '@/components/LinkArrow/LinkArrow';
+import SliderProducts from '@/components/SliderProducts/SliderProducts';
+import Instructors from '@/components/Instructors/Instructors';
 import s from './Home.module.scss';
 import mainImg from '@/assets/images/main.jpg';
-import SliderProducts from '../../components/SliderProducts/SliderProducts';
-import { useRef } from 'react';
 
 function Home() {
   const title1 = 'Arm Yourself with Quality';
@@ -101,6 +102,7 @@ function Home() {
         </Container>
       </section>
       <SliderProducts />
+      <Instructors />
       <Footer />
     </>
   );
