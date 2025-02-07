@@ -50,6 +50,10 @@ function Catalog() {
   };
 
   useEffect(() => {
+    if(!category && !searchText) setAllProducts([...products]);
+  }, [category, searchText]);
+
+  useEffect(() => {
     if (category) {
       dispatch(getProductsByCategory(category));
     }
