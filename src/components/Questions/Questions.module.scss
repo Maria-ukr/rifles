@@ -33,9 +33,15 @@
       }
     }
     & img {
-      transition: all 0.3s linear;
       width: 28px;
       margin-left: 1.3rem;
+      transition: all 0.2s linear;
+    }
+    & img.show {
+      transform: rotate(90deg);
+      &:hover {
+        color: var(--grimmy-grey);
+      }
     }
   }
   & .answer {

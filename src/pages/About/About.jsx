@@ -1,16 +1,14 @@
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import Container from '@/components/Container/Container';
-import SceneAbout from '../../components/SceneAbout/SceneAbout';
+import SceneAbout from '@/components/SceneAbout/SceneAbout';
+import AboutUs from '@/components/AboutUs/AboutUs';
 
 function About() {
   return (
     <>
       <Header />
-      <Container>
-        <div>Про компанію</div>
-      </Container>
       <SceneAbout />
+      <AboutUs />
       <Footer />
     </>
   );

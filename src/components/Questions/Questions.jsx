@@ -28,7 +28,12 @@ const Item = ({ que, ans }) => {
   return (
     <div className={s.box} onClick={() => setOpen(!open)}>
       <p className={s.question}>
-        {que} <img src={rightArrow} alt='rightArrow' />
+        {que}
+        <img
+          src={rightArrow}
+          alt='rightArrow'
+          className={cx({ [s.show]: open })}
+        />
       </p>
       <p className={cx(s.answer, { [s.open]: open })}>{ans}</p>
     </div>
