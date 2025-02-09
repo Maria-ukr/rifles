@@ -1,4 +1,5 @@
 {
+  "homepage": "https://maria-ukr.github.io/rifles/",
   "name": "rifles",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -17,6 +20,7 @@
     "classnames": "^2.5.1",
     "dotenv": "^16.4.7",
     "formik": "^2.4.6",
+    "gh-pages": "^6.3.0",
     "gsap": "^3.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
