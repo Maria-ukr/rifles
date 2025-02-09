@@ -16,7 +16,7 @@ To open project on your computer use branch `develop`
 
 I used node version `v20.16.0`
 
-Clone the project
+Clone the project form branch `debelop`
 
 ```bash
   git clone https://github.com/Maria-ukr/rifles.git
