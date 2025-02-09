@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import cx from 'classnames';
 import Container from '@/components/Container/Container';
 import boxImg1 from '@/assets/images/banner.jpg';
 import boxImg2 from '@/assets/images/people2.jpg';
@@ -13,24 +14,24 @@ function Services() {
   const tab3 = useRef(null);
 
   useEffect(() => {
-    gsap.set([tab1.current, tab2.current, tab3.current], { opacity: 0 });
+    gsap.set([tab1.current, tab2.current, tab3.current], { display: 'none' });
     if (tab === '1') {
       gsap.to(tab1.current, {
-        opacity: 1,
+        display: 'block',
         duration: 0.5,
         ease: 'power4.inOut',
       });
     }
     if (tab === '2') {
       gsap.to(tab2.current, {
-        opacity: 1,
+        display: 'block',
         duration: 0.5,
         ease: 'power4.inOut',
       });
     }
     if (tab === '3') {
       gsap.to(tab3.current, {
-        opacity: 1,
+        display: 'block',
         duration: 0.5,
         ease: 'power4.inOut',
       });
@@ -46,21 +47,21 @@ function Services() {
           <div
             onClick={() => setTab('1')}
             style={{ backgroundImage: `url(${boxImg1})` }}
-            className={s['box-1']}
+            className={cx(s['box-1'], {[s.active] : tab === '1'})}
           >
             <h6>Повернення та обмін</h6>
           </div>
           <div
             onClick={() => setTab('2')}
             style={{ backgroundImage: `url(${boxImg2})` }}
-            className={s['box-2']}
+            className={cx(s['box-2'], {[s.active] : tab === '2'})}
           >
             <h6>Гарантійний ремонт</h6>
           </div>
           <div
             onClick={() => setTab('3')}
             style={{ backgroundImage: `url(${boxImg3})` }}
-            className={s['box-3']}
+            className={cx({[s.active] : tab === '3'})}
           >
             <h6>Гарантія на гвинтівки</h6>
           </div>

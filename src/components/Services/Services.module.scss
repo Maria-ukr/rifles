@@ -8,7 +8,7 @@
 
 .wrap {
   width: 100%;
-  background-color: rgb(70, 70, 70);
+  background-color: var(--grimmy-grey);
   margin-top: 80px;
   margin-bottom: 170px;
   height: auto;
@@ -28,15 +28,21 @@
       transition: all 0.3s linear;
       align-self: flex-end;
       align-content: end;
-      padding: 0 10px 2.7rem 10px;
+      padding: 0 10px 60px 10px;
       cursor: pointer;
+      filter: blur(4px);
       &:hover {
         transform: scale(1.1);
+      }
+      &.active {
+        border: 1px solid var(--grimmy-grey);
+        filter: blur(0);
       }
       & h6 {
         color: var(--light);
         font-weight: 600;
         text-transform: uppercase;
+        text-shadow: rgb(0, 0, 0) 0 1px 8px;
       }
     }
   }
@@ -46,12 +52,14 @@
 .box {
   position: relative;
   padding: 2rem;
+  margin-top: 50px;
   margin-bottom: 200px;
   border-radius: 8px;
-
+  height: 100%;
+  border: 1px solid var(--grimmy-grey);
 }
 .content {
-  position: absolute;
+  display: none;
   inset: 0;
   text-wrap: balance;
   text-align: justify;

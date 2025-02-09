@@ -58,3 +58,23 @@
   display: inline;
   opacity: 0;
 }
+
+.aside {
+  margin-bottom: 80px;
+  & .title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 30px 0;
+  }
+  & p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    text-align: center;
+    text-wrap: balance;
+    & span {
+      font-weight: 600;
+    }
+  }
+}

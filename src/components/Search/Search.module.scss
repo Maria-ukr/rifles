@@ -16,7 +16,6 @@
   right: 0;
   bottom: 0;
   backdrop-filter: blur(10px);
-  // background-color: #ffffffb2;
   z-index: 7;
   display: flex;
   justify-content: space-between;
@@ -31,13 +30,11 @@
     padding: 5rem 0;
     & input {
       box-shadow: rgba(30, 30, 31, 0.281) 0px 0px 50px 30px;
-      // box-shadow: 0px 0px 0px 6666px rgba(19, 20, 20, 0.4);
       background-color: #20202079;
       padding: 2rem 1rem;
       border-radius: 11px;
       display: block;
       width: 100%;
-      // background: transparent;
       border: none;
       border-bottom: 1px solid var(--light);
       color: var(--light);
