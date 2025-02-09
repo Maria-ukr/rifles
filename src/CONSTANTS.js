@@ -1,5 +1,7 @@
+
+
 export const CONSTANTS = {
-  STATIC_FOLDER: import.meta.env.VITE_STATIC_FOLDER,
+  STATIC_FOLDER: 'https://maria-ukr.github.io/rifles/',
   COMPANY_NAME: 'The Gun Store',
   ADDRESS: 'via Barberini, 31 - 00187 Roma, Italy',
   EMAIL: 'sales@thegunstore.eu',
