@@ -1,0 +1,15 @@
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  & p {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+    text-wrap: balance;
+    text-align: left;
+    margin-bottom: 1rem;
+    text-align: justify;
+    & span {
+      font-weight: 600;
+    }
+  }
+}

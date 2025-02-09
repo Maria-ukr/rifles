@@ -1,0 +1,15 @@
+.header {
+  background-color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 147px;
+  position: relative;
+  z-index: 9999;
+  & .logo {
+    display: flex;
+  }
+}
+.right {
+  display: flex;
+}
