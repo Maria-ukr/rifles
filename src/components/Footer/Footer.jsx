@@ -48,7 +48,7 @@ function Footer() {
             <p className={s.title}>МЕНЮ</p>
             <ul className={s['menu-list']}>
               <li className={s['item-menu']}>
-                <Link to='/'>Головна</Link>
+                <Link to='/rifles'>Головна</Link>
               </li>
               <li className={s['item-menu']}>
                 <Link to='/catalog'>Каталог</Link>
@@ -65,7 +65,7 @@ function Footer() {
             <p className={s.title}>ІНФОРМАЦІЯ</p>
             <ul className={s['menu-list']}>
               <li className={s['item-menu']}>
-                <Link to='/'>Оплата і доставка</Link>
+                <Link to='/rifles'>Оплата і доставка</Link>
               </li>
               <li className={s['item-menu']}>
                 <Link to='/about'>Про компанію</Link>
