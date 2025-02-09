@@ -27,7 +27,7 @@ function Header() {
   return (
     <Container>
       <header className={s.header} ref={refNav}>
-        <Link to='/' className={s.logo}>
+        <Link to='/rifles' className={s.logo}>
           <Logo />
         </Link>
         <Menu categories={categories} />
