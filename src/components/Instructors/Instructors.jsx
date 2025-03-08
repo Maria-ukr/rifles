@@ -15,7 +15,6 @@ function Instructors() {
   useGSAP(
     () => {
       const sections = gsap.utils.toArray(`.${s.box}`);
-      console.log('sections', sections);
       gsap.from(sections, {
         opacity: 0,
         duration: 0.5,
