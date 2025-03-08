@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CONSTANTS } from '@/constants.js';
-import InputControl from '@/components/inputControl/InputControl.jsx';
+import InputControl from '@/components/InputControl/InputControl.jsx';
 import { removeProduct } from '@/store/slices/cartSlice';
 import s from './Orders.module.scss';
 
