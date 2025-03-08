@@ -37,7 +37,7 @@ function SliderProducts() {
   return (
     <>
       <Container className={s.container}>
-        <h2 className={s.title}>Каталог товарів</h2>
+        <h2 className='title'>Каталог товарів</h2>
         <button ref={navigationPrevRef} className={s.prev}></button>
         <button ref={navigationNextRef} className={s.next}></button>
         <Swiper

@@ -10,6 +10,7 @@ import SubscribeForm from '@/components/SubscribeForm/SubscribeForm';
 import Instructors from '@/components/Instructors/Instructors';
 import s from './Home.module.scss';
 import mainImg from '@/assets/images/main.jpg';
+import ScrollBox from '../../components/ScrollBox/ScrollBox';
 
 function Home() {
   const title1 = 'Arm Yourself with Quality';
@@ -104,6 +105,7 @@ function Home() {
       </section>
       <SliderProducts />
       <Instructors />
+      <ScrollBox />
       <Container className={s.aside}>
         <h3 className={s.title}>Ударні рушниці</h3>
         <p>

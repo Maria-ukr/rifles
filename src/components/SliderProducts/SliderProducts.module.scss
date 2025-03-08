@@ -2,18 +2,11 @@
   padding: 0 25px 0;
   padding-top: 70px;
   position: relative;
+  & h2 {
+    margin-bottom: 0.5rem;
+    margin-left: -10px!important;
+  }
 }
-
-.title {
-  text-transform: uppercase;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-align: left;
-  margin-bottom: 40px;
-  margin-left: -10px;
-}
-
 .slider {
   margin-bottom: 70px;
   padding: 2rem;
@@ -55,7 +48,6 @@
     }
   }
 }
-
 
 .prev {
   position: absolute;

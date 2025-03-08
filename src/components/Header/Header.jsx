@@ -25,7 +25,7 @@ function Header() {
   }, []);
 
   return (
-    <Container>
+    <Container className={s.container}>
       <header className={s.header} ref={refNav}>
         <Link to='/rifles' className={s.logo}>
           <Logo />
