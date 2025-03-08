@@ -35,7 +35,7 @@ function Instructors() {
   return (
     <>
       <Container>
-        <h2 className={s.title}>Інструктори з полігону</h2>
+        <h2 className='title'>Інструктори з полігону</h2>
       </Container>
       <div className={s.container} ref={main}>
         <div className={s.box}>
