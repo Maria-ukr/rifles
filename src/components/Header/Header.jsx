@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import s from './Header.module.scss';
 import Logo from '@/components/Logo/Logo';
 import Menu from '@/components/Menu/Menu';
@@ -8,7 +9,6 @@ import Search from '@/components/Search/Search';
 import Container from '@/components/Container/Container';
 import MobileMenu from '@/components/MobileMenu/MobileMenu';
 import Navigation from 'root/data.json';
-import gsap from 'gsap';
 
 function Header() {
   const { categories } = Navigation;

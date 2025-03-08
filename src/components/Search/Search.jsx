@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
-import searchImg from '@/assets/images/search.svg';
-import s from './Search.module.scss';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { schemaSearchedProduct } from '../../utils/validationSchemas';
+import searchImg from '@/assets/images/search.svg';
+import s from './Search.module.scss';
 
 function Search() {
   const navigate = useNavigate();
